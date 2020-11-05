@@ -1,0 +1,226 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+ /**/
+
+$colorprincipal: rgb(190, 52, 121);
+$colorsecundario: pink;
+
+
+.barra {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav {
+
+    .logo {
+        display: block;
+        text-align: center;
+
+        img {
+            max-width: 100px;
+        }
+    }
+
+    .botones {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: $colorsecundario;
+        height: 100vh;
+        padding: 20px;
+
+        box-shadow: 6px 0 3px rgba(0,0,0,0.2);
+
+        position: absolute;
+        top: 0;
+        left: -160px;
+
+        transition: width 1s;
+        
+        a {
+            margin-bottom: 20px;
+            color: white;
+            font-size: 30px;
+            transition: color 1s;
+
+            &:hover {
+                color: $colorprincipal;
+            }
+        }
+
+        &::after{
+            content: '';
+            background-image: url('../img/menu.png');
+            background-size: 30px;
+            background-repeat: no-repeat;
+            padding-left: 3px;
+            display: block;
+            width: 30px;
+            height: 30px;
+
+            position: absolute;
+            top: 10px;
+            right: -50px;
+
+            transition: all 1s;
+        }
+
+        &:hover {
+            left: 0;
+        }
+
+        &:hover::after{
+            right: 10px;
+        }
+    } 
+
+    @media all and (min-width:800px) {
+        .barra {
+            display: flex;
+            padding: 14px;
+        }
+
+        .logo {
+            width: 100px;
+            text-align: center;
+        }
+
+        .botones {
+            width: 100%;
+            height: auto;
+            background-color: transparent;
+            box-shadow: none;
+            position: static;
+            flex-direction: row;
+            justify-content: flex-end;
+            
+                a {
+                color: $colorprincipal;
+                padding: 20px;
+                font-size: 20px;
+            
+                    &:hover {
+                    color: $colorsecundario;
+                    }
+
+                } 
+                
+                &::after {
+                    display: none;
+                }
+
+        }
+    }
+   
+}
+
+
+.intro {
+    height: calc(100vh - 120px);
+    background: url('../img/donut2.jpg');
+    background-position: -200px;
+    background-repeat: no-repeat;
+    text-align: center;
+    margin: auto;
+
+    div {
+        max-width: 300px;
+        margin: auto;
+    }
+    h1 {
+        color: $colorprincipal;
+        font-size: 40px;  
+        padding-top: 100px;
+        grid-row: 2;
+        grid-column: 2;
+    }
+
+    p{
+        font-size: 20px;
+        margin: 20px;
+        color: white;
+    }
+
+    a {
+        display: block;
+        max-width: 300px;
+        height: auto;
+        background-color: $colorprincipal;
+        padding: 20px;
+        font-size: 1.4em;
+        font-weight: bold;
+        color: white;
+        letter-spacing: 1px;
+        margin: auto;
+
+        transition: background-color 1s;
+
+        &:hover{
+            color: $colorprincipal;
+            background-color: white;
+        }
+    }
+
+    @media all and (min-width: 800px) {
+        width: 100%;
+        height: calc(100vh - 148px);
+
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        grid-template-rows: repeat(2, 50%);
+        
+    }
+}
+
+   
+    
+
